@@ -1,0 +1,73 @@
+@import '../utils/utils.less';
+
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes. No mixins please.
+// -----------------------------------------------------------------------------
+
+.grey {
+	color: @grey;
+}
+
+.grey-dark {
+	color: @grey-dark;
+}
+
+.blue {
+	color: @blue;
+}
+
+.green {
+	color: @green;
+}
+
+.green-dark {
+	color: @green-dark;
+}
+
+.blue-light {
+	color: @blue-light;
+}
+
+.black {
+	color: @black;
+}
+
+.white {
+	color: @white;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.grey-background {
+	background-color: #ddd;
+}
+
+.screen-reader-text {
+	.sr-only();
+}
+
+.alignleft {
+	@media @mq-sm-min {
+		float: left;
+		margin-right: 40px;
+	}
+
+	@media @mq-lg-min {
+		margin-left: -65px;
+	}
+}
+
+.alignright {
+	@media @mq-sm-min {
+		float: right;
+		margin-left: 40px;
+	}
+}
+
+figure.alignnone {
+	margin-left: 0;
+	margin-right: 0;
+	max-width: 100%;
+}

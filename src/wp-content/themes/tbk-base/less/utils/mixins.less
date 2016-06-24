@@ -1,0 +1,386 @@
+.appearance(@value) {
+	-webkit-appearance: @value;
+	   -moz-appearance: @value;
+	    -ms-appearance: @value;
+	        appearance: @value;
+}
+
+.transition-transform(@duration: .2s; @timing: ease-in-out) {
+	-webkit-transition: -webkit-transform @duration @timing;
+	   -moz-transition: -moz-transform @duration @timing;
+		 -o-transition: -o-transform @duration @timing;
+			transition: transform @duration @timing;
+}
+
+.keyframes(@name; @arguments) {
+	@-moz-keyframes @name { @arguments(); }
+	@-webkit-keyframes @name { @arguments(); }
+	@keyframes @name { @arguments(); }
+}
+
+.list-reset() {
+	&,
+	li {
+		padding: 0;
+		margin: 0;
+		border: 0;
+		background: 0 0;
+		position: relative;
+		font-size: inherit;
+		line-height: inherit;
+		letter-spacing: inherit;
+		display: block;
+	}
+
+	li {
+		&::before {
+			display: none;
+			position: static;
+		}
+
+		list-style: none;
+		display: inline;
+	}
+}
+
+// call this mixin in an :after or :before to add a fancy red line
+// make sure the parent element has a position of relative or absolute
+.fancy-red-line() {
+	content: '';
+	display: inline-block;
+	background-color: @red;
+	.size(95px, 1px);
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -(95px / 2);
+}
+
+// This will add a 2px border and space out the contents on the left side.
+.border-left-blue() {
+	border-left: 2px solid @blue-light;
+	padding-left: 27px;
+}
+
+// bootstrap's screenreader only class made into a mixin
+// (why they don't have this as a mixin already is beyond me)
+// use this mixin on any elements that you don't want to be screen-visible
+// but still read by screen-readers
+.sr-only() {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
+// use this in an :after or :before (or both for a fancy border effect)
+// to give the appearance of an arrow at the bottom of the element
+.triangle-bottom(@width: 26px, @height: 14px, @color: #fff) {
+	content: '';
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: @height (@width / 2) 0 (@width / 2);
+	border-color: @color transparent transparent transparent;
+	position: absolute;
+	bottom: -(@height - 1px);
+	left: 50%;
+	margin-left: -(@width / 2);
+}
+
+// for when you want a button without all the default styles
+.btn-cleared() {
+	background: 0 0;
+	border: 0;
+	color: inherit;
+	padding: 0;
+
+	&:hover,
+	&:focus {
+		background: 0 0;
+		color: inherit;
+	}
+
+	i {
+		font-size: inherit;
+	}
+}
+
+.body-font() {
+	#proxima .regular;
+	font-size: 19px;
+	line-height: 27px;
+	.exact-letter-spacing(10, 19px);
+	color: @gray-dark;
+}
+
+// .exact-letter-spacing uses a px fallback for older browsers, but since we no longer support browsers
+// that don't understand em, we no longer need to use it. here's a new one!
+.letter-spacing(@tracking) {
+	letter-spacing: ((@tracking * 1em ) / 1000);
+}
+
+// sets the exact letter spacing based on the tracking and font-size in the psd
+.exact-letter-spacing(@tracking, @font-size) {
+	letter-spacing: round((@tracking * @font-size) / 1000); // px fall-back for browsers that suck at em
+	letter-spacing: ((@tracking * 1em ) / 1000); // result in em
+}
+
+.translate-x(@x) {
+	-webkit-transform: translateX(@x);
+	-ms-transform: translateX(@x); // IE9 only
+	-o-transform: translateX(@x);
+	transform: translateX(@x);
+}
+
+.z-translate(){
+	-webkit-transform: translatez(0);
+	-moz-transform: translatez(0);
+	-ms-transform: translatez(0);
+	-o-transform: translatez(0);
+	transform: translatez(0);
+}
+
+.translate-y(@y) {
+	-webkit-transform: translateY(@y);
+	-ms-transform: translateY(@y); // IE9 only
+	-o-transform: translateY(@y);
+	transform: translateY(@y);
+}
+
+.tbk-transform(@transform) {
+	-webkit-transform: @transform;
+	-ms-transform: @transform; // IE9 only
+	-o-transform: @transform;
+	transform: @transform;
+}
+
+// great for blurring images with transparency
+.blur(@blur-amount: 3) {
+	-webkit-filter: blur(@blur-amount*1px);
+	-moz-filter: blur(@blur-amount*1px);
+	-o-filter: blur(@blur-amount*1px);
+	-ms-filter: blur(@blur-amount*1px);
+	filter: blur(@blur-amount*1px);
+	filter: url('../images/blur.svg#blur');
+	filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='@blur-amount');
+}
+
+.reset-filter() {
+	-webkit-filter: none;
+	-moz-filter: none;
+	-o-filter: none;
+	-ms-filter: none;
+	filter: none;
+}
+
+// great for adding shadows to images with transparency
+.filter-drop-shadow(@x: 12, @y: 12, @blur: 25, @color: #444) {
+	-webkit-filter: drop-shadow((@x*1px) (@y*1px) (@blur*1px) @color);
+	filter: url('../images/drop-shadow.svg#drop-shadow');
+	filter: drop-shadow((@x*1px) (@y*1px) (@blur*1px) @color);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=@x, OffY=@y, Color='@color')";
+	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=@x, OffY=@y, Color='@color')";
+}
+
+.icomoon() {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.box(@width:100%, @height:auto,@background-color:#000){
+	width:@width;
+	height:@height;
+	background-color: @background-color;
+	display:block;
+}
+.inherit(){
+	color:inherit;
+
+	&:hover,
+	&:focus {
+		color:inherit;
+		text-decoration: none;
+	}
+}
+
+.absolutecentered(@width:100px){
+	position: absolute;
+	left:50%;
+	margin-left: -(@width/2);
+}
+.imgico(@width:100%, @height:auto, @background){
+	width:@width;
+	height:@height;
+	background: @background;
+	display: block;
+
+}
+.circle(@size) {
+	border-radius: 50%;
+	width: @size;
+	height: @size;
+}
+
+.design-gallery-circle(@bgcolor:#000){
+	content: "";
+	.circle(33px);
+	background-color: @bgcolor;
+	position: absolute;
+	left:50%;
+	top:28px;
+	margin:0px 0px 0px -17px;
+	content: "\e60a";
+	font-size:7px;
+	font-family: 'williamstanden';
+	speak: none;
+	color:#fff;
+	padding-top:2px;
+	text-align: center;
+	.transition();
+}
+
+.rounded(@radius: 10px) {
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+	-khtml-border-radius: @radius;
+}
+.tbk-transition(@element: color, @speed: .5s, @effect: ease-in-out) {
+	transition: @element @speed @effect;
+	-moz-transition: @element @speed @effect;
+	-webkit-transition: @element @speed @effect;
+	-o-transition: @element @speed @effect;
+}
+.borderfade(@time:1s){
+	-webkit-transition: border-color @time ease;
+	-moz-transition: border-color @time ease;
+	-o-transition: border-color @time ease;
+	-ms-transition: border-color @time ease;
+	transition: border-color @time ease;
+}
+.color-border-transition(@time:.2s)  {
+	transition: border-color @time linear,color @time;
+	-moz-transition: border-color @time linear,color @time;
+	-o-transition: border-color @time linear,color @time;
+	-webkit-transition: border-color @time linear,color @time;
+	-ms-transition: border-color @time linear,color @time;
+	-webkit-font-smoothing: antialiased;
+}
+.background-color-transition(@time:.3s){
+	-webkit-transition: background @time linear;
+	-moz-transition: background @time linear;
+	-ms-transition: background @time linear;
+	-o-transition: background @time linear;
+	transition: background @time linear;
+}
+.bootstrap-controls-hidden(){
+
+	.controls{
+		display: none;
+	}
+	.banner-progress{
+		display: none;
+	}
+	.carousel-caption{
+		display: none;
+	}
+
+}
+
+@webkit: true;
+@moz: true;
+@opera: true;
+@ms: true;
+@w3c: true;
+.opacity(...) {
+
+	@ms_local: true;
+	@webkit_local: true;
+	@moz_local: true;
+	@w3c_local: true;
+
+	@process_ms: ~`(function(value){return value=value||"filter: alpha(opacity=100)","alpha(opacity="+Math.floor(100*value)+")"})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+	@process: ~`(function(value){return value=value||"1"})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+
+	.result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
+		.inception (@signal, @arguments) when (@signal = 1) and (isstring(@process_ms)) and not (iscolor(@process_ms)) and not (isnumber(@process_ms)) and not (iskeyword(@process_ms)) and not (isurl(@process_ms)) and not (ispixel(@process_ms)) and not (ispercentage(@process_ms)) and not (isem(@process_ms)) {  zoom: 1; filter: @process_ms; }
+		.inception (@signal, @arguments) when (@signal = 1) and not (isstring(@process_ms)) and not (iscolor(@process_ms)) and not (isnumber(@process_ms)) and not (iskeyword(@process_ms)) and not (isurl(@process_ms)) and not (ispixel(@process_ms)) and not (ispercentage(@process_ms)) and not (isem(@process_ms)) {}
+		.inception (@signal, @arguments) when (@signal = 2) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-opacity: @process; }
+		.inception (@signal, @arguments) when (@signal = 2) and not (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) {}
+		.inception (@signal, @arguments) when (@signal = 3) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -moz-opacity: @process; }
+		.inception (@signal, @arguments) when (@signal = 3) and not (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) {}
+		.inception (@signal, @arguments) when (@signal = 4) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { opacity: @process; }
+		.inception (@signal, @arguments) when (@signal = 4) and not (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) {}
+		.inception(@signal, @arguments);
+	}
+	.result (@arguments, @signal, @boolean, @local_boolean) when not (@boolean = true), not (@local_boolean = true) {}
+
+	.result(@arguments, 1, @ms, @ms_local);
+	.result(@arguments, 2, @webkit, @webkit_local);
+	.result(@arguments, 3, @moz, @moz_local);
+	.result(@arguments, 4, @w3c, @w3c_local);
+
+}
+
+.fa() {
+	display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius:    @radius;
+	border-radius:         @radius;
+}
+
+.triangle-base() {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	-moz-transform: scale(.9999);
+}
+.triangle(@direction, @size, @color) {
+	.triangle(@direction, @size * 2, @size, @color);
+}
+.triangle(@direction, @width, @height, @color) when (@direction = up) {
+	.triangle-base();
+	border-left: (@width / 2) solid transparent;
+	border-right: (@width / 2) solid transparent;
+	border-bottom: @height solid @color;
+}
+.triangle(@direction, @width, @height, @color) when (@direction = down) {
+	.triangle-base();
+	border-left: (@width / 2) solid transparent;
+	border-right: (@width / 2) solid transparent;
+	border-top: @height solid @color;
+}
+.triangle(@direction, @width, @height, @color) when (@direction = left) {
+	.triangle-base();
+	border-top: (@width / 2) solid transparent;
+	border-bottom: (@width / 2) solid transparent;
+	border-right: @height solid @color;
+}
+.triangle(@direction, @width, @height, @color) when (@direction = right) {
+	.triangle-base();
+	border-top: (@width / 2) solid transparent;
+	border-bottom: (@width / 2) solid transparent;
+	border-left: @height solid @color;
+}

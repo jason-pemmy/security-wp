@@ -1,0 +1,36 @@
+.slider
+{
+
+	position:relative;
+}
+.slider,
+.slider .slides_container
+{
+/*    height: 582px;*/
+}
+.top-banner-controls
+{
+	height:37px;
+	width:105px;
+	top:481px;
+	position:absolute;
+	z-index:5;
+}
+.slider .banner-previous,
+.slider .banner-next
+{
+	width:52px;
+	height:37px;
+	display:block;
+    position: absolute;
+    bottom: 65px;
+    text-indent: -1000px;
+}
+.slider .banner-previous
+{
+	left: 0px;
+}
+.slider .banner-next
+{
+	left: 53px;
+}

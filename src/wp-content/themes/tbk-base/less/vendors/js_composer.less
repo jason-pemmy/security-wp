@@ -1,0 +1,155 @@
+// DONT DELETE
+@js-composer-directory: '../../../../plugins/js_composer/assets/less/';
+@import "@{js-composer-directory}config/variables.less";
+// END DONT DELETE
+
+@import "@{js-composer-directory}lib/responsive-utilities.less";
+@import "@{js-composer-directory}lib/grid.less";
+@import "@{js-composer-directory}lib/utils.less";
+@import "@{js-composer-directory}modules/vc_table.less";
+
+// pixel icons
+@import "@{js-composer-directory}lib/pixel_icons.less";
+
+//Helper classes
+.vc_txt_align_ {
+	&left {
+		text-align: left;
+	}
+	&right {
+		text-align: right;
+	}
+	&center {
+		text-align: center;
+	}
+	&justify {
+		text-align: justify;
+		text-justify: inter-word;
+	}
+}
+
+// Mixin for genereate .vc_el_width_X class
+.vc_el_width( @size ) {
+	&.vc_el_width_@{size} {
+		@percent_size: ~"@{size}%"; // string concatenation with number + %
+		width: @percent_size;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+}
+
+// Loop to call .vc_el_width mixin
+.generate_width(@start, @max: 100, @step: 10) when ( @start <= @max) {
+	.vc_el_width(@start);
+	.generate_width((@start+@step), @max, @step); // next iteration, will automatically break if @start+@step <= @max
+}
+
+// Generate classes in loop from 50 to 100, vc_el_width_50, .. vc_el_width_100.
+.generate_width(50, 100, 10);
+
+@import (once) "@{js-composer-directory}modules/vc_buttons.less";
+.vc_column_container {
+	.vc_btn, .wpb_button {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+}
+
+/* 2. Alerts (Message boxes)
+---------------------------------------------------------- */
+@import "@{js-composer-directory}shortcodes/vc_message_old.less"; // @deprecated since 4.4 and will be removed
+@import "@{js-composer-directory}shortcodes/vc_message_box/vc_message_box_front.less";
+
+/* 4. Separators
+---------------------------------------------------------- */
+
+/***************** OLD CSS *****************/
+/* Content elements margins
+---------------------------------------------------------- */
+.wpb_alert p:last-child,
+#content .wpb_alert p:last-child, /* for twenty ten theme */
+.wpb_text_column p:last-child,
+.wpb_text_column *:last-child,
+#content .wpb_text_column p:last-child, /* for twenty ten theme */
+#content .wpb_text_column *:last-child, /* for twenty ten theme */
+
+.wpb_toggle_content p:last-child {
+	//margin-bottom: 0;
+}
+
+.wpb_row,
+.wpb_content_element,
+ul.wpb_thumbnails-fluid > li,
+.last_toggle_el_margin,
+.wpb_button {
+	//margin-bottom: @vc_element_margin_bottom;
+}
+
+//.wpb_alert,
+.fb_like,
+.twitter-share-button, .entry-content .twitter-share-button,
+.wpb_googleplus,
+.wpb_pinterest,
+.wpb_tab .wpb_content_element,
+.wpb_accordion .wpb_content_element,
+.wpb_toggle_content {
+	//margin-bottom: @vc_margin_bottom_gold; //@vc_element_margin_bottom/1.61; //1.61 - is golden ratio
+}
+
+.wpb_column {
+	> .wpb_wrapper > *:last-child {
+		//margin-bottom: 0; //remove margin bottom from last content elements in columns
+	}
+}
+
+.vc_row {
+	&.vc_row-no-padding {
+		.wpb_column {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	&[data-vc-full-width] {
+		.transition(opacity 0.5s ease);
+	}
+	&[data-vc-full-width-init="false"] {
+		.opacity(0);
+	}
+}
+
+@import "@{js-composer-directory}lib/parallax.less";
+@import "@{js-composer-directory}lib/vc_row.less";
+
+@import "@{js-composer-directory}shortcodes/vc_social_btns.less";
+@import "@{js-composer-directory}shortcodes/vc_toggle.less";
+@import "@{js-composer-directory}shortcodes/vc_toggle_faq_old.less";
+@import "@{js-composer-directory}shortcodes/vc_widgetised_column.less";
+@import "@{js-composer-directory}shortcodes/vc_button.less";
+@import "@{js-composer-directory}shortcodes/vc_button3.less";
+@import "@{js-composer-directory}shortcodes/vc_custom_heading.less";
+@import "@{js-composer-directory}shortcodes/vc_call_to_action.less";
+@import "@{js-composer-directory}shortcodes/vc_call_to_action3.less";
+@import "@{js-composer-directory}shortcodes/vc_google_maps.less";
+@import "@{js-composer-directory}shortcodes/vc_tabs_tour_accordion.less";
+@import "@{js-composer-directory}shortcodes/vc_teaser_grid.less";
+@import "@{js-composer-directory}shortcodes/vc_image_gallery.less";
+@import "@{js-composer-directory}shortcodes/vc_flickr.less";
+@import "@{js-composer-directory}shortcodes/vc_video_widget.less";
+@import "@{js-composer-directory}shortcodes/vc_post_slider.less";
+@import "@{js-composer-directory}shortcodes/vc_progress_bar.less";
+@import "@{js-composer-directory}shortcodes/vc_pie.less";
+@import "@{js-composer-directory}shortcodes/vc_carousel.less";
+@import "@{js-composer-directory}shortcodes/vc_separator.less";
+@import "@{js-composer-directory}shortcodes/vc_single_image.less";
+@import "@{js-composer-directory}shortcodes/vc_icon_element.less";
+@import "@{js-composer-directory}shortcodes/vc_charts.less";
+@import "@{js-composer-directory}shortcodes/vc_tta.less";
+@import "@{js-composer-directory}shortcodes/vc_pagination.less";
+
+// Vc_Basic_Grid shortcode
+@import "@{js-composer-directory}shortcodes/vc_basic_grid/vc_grid.less";
+
+@import "@{js-composer-directory}lib/vc_font.less";
+@import "@{js-composer-directory}lib/css3_animations.less";
+
+@import "@{js-composer-directory}vendor/woocommerce.less";

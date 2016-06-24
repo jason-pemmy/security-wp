@@ -1,0 +1,62 @@
+@import '../utils/utils.less';
+
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+html {
+	-webkit-font-smoothing: antialiased;
+	box-sizing: border-box;
+	background-color: @white;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	position: relative;
+}
+
+.main {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.wpb_row {
+	&.container {
+		& > .vc_col-sm-12 {
+			& > .vc_column-inner {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+	}
+}
+
+.wpb_row {
+	// make the vc row play nice with the bootstrap container
+	&.container {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+p {
+	// vc likes to insert tons of empty paragraphs everywhere
+	// i can't think of a reason why we would want an empty p somewhere so i'm hiding them globally
+	// specifity is pretty low so it wouldn't be hard to override
+	// if you're feeling crazy and want an empty paragraph
+	// you weirdo
+	&:empty {
+		display: none;
+	}
+}
+
+.container.container-narrow {
+	@media @mq-lg-min {
+		width: 900px;
+	}
+}

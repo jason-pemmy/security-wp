@@ -1,0 +1,39 @@
+@import 'utils/utils.less';
+
+// http://csswizardry.com/2013/04/shame-css/
+
+// The idea of shame.css is that you have a totally new stylesheet reserved just for your hacky code.
+// The code you have to write to get the release out on time, but the code that makes you ashamed.
+
+// The rules
+
+// 1. If it’s a hack, it goes in shame.css.
+// 2. Document all hacks fully:
+// 		1. What part of the codebase does it relate to?
+// 		2. Why was this needed?
+// 		3. How does this fix it?
+// 		4. How might you fix it properly, given more time?
+// 3. Do not blame the developer; if they explained why they had to do it then their reasons are probably (hopefully) valid.
+// 4. Try and clean shame.css up when you have some down time.
+// 		1. Even better, get a tech-debt story in which you can dedicate actual sprint time to it.
+
+
+
+// Typehead provides no proper rendered event, does not pass in the data the documentation says it does,
+// does not provide a way for multiple data sets to share a template (and thus prints out 4 empty messages)
+// So here is some intense hackery
+.tt-dataset:empty + .tt-dataset:empty + .tt-dataset:empty + .tt-dataset:empty::before {
+	content: 'We found no results - please try your search again.';
+	#acumin .regular;
+	padding: 15px 50px;
+	font-size: 23px;
+	display: block;
+}
+
+// the use of fastclick.js introduces an ios bug in elements inside labels that doesn't allow tap/click events
+// on (for example) spans inside labels to bubble up to the label itself, so the radio/checkbox toggle is therefore
+// never triggered. this shame hack allows us to work around that issue
+// http://stackoverflow.com/questions/7358781/tapping-on-label-in-mobile-safari
+label > * {
+	pointer-events: none;
+}

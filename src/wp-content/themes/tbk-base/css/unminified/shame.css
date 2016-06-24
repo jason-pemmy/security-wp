@@ -1,0 +1,12 @@
+.tt-dataset:empty + .tt-dataset:empty + .tt-dataset:empty + .tt-dataset:empty::before {
+  content: 'We found no results - please try your search again.';
+  font-family: "acumin-pro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  padding: 15px 50px;
+  font-size: 23px;
+  display: block;
+}
+label > * {
+  pointer-events: none;
+}

@@ -1,0 +1,134 @@
+.front-end-tools {
+  display: none;
+}
+.front-end-tools.show {
+  display: block;
+}
+.front-end-tools::before {
+  content: "Mobile";
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 121px;
+  z-index: 9999;
+  padding: 0 15px 0 15px;
+  line-height: 2.7;
+  height: 51px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
+  background: #222;
+}
+@media screen and (min-width: 480px) {
+  .front-end-tools::before {
+    content: "XS";
+    right: 152px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .front-end-tools::before {
+    content: "Small";
+    right: 131px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .front-end-tools::before {
+    content: "Medium";
+    right: 110px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .front-end-tools::before {
+    content: "Large";
+    right: 129px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .front-end-tools::before {
+    content: "XL";
+    right: 150px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .front-end-tools::before {
+    content: "XXL";
+    right: 150px;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .front-end-tools::before {
+    content: "XXXL";
+    right: 130px;
+  }
+}
+.front-end-tools .menu-options {
+  position: fixed;
+  top: 250px;
+  left: 0;
+  z-index: 9999;
+  margin: 0;
+  padding: 0;
+  width: 150px;
+}
+.front-end-tools .menu-options:hover .menu-item,
+.front-end-tools .menu-options:focus .menu-item,
+.front-end-tools .menu-options:hover .vc-version,
+.front-end-tools .menu-options:focus .vc-version {
+  display: block;
+  left: 0;
+}
+.front-end-tools .menu-options .open-menu {
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background-color: #222222;
+}
+.front-end-tools .menu-options .open-menu img {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.front-end-tools .menu-options .menu-item {
+  display: none;
+}
+.front-end-tools .menu-options .menu-item a {
+  display: block;
+  padding: 13px;
+  background-color: #30A2BC;
+  color: white;
+  text-decoration: none;
+}
+.front-end-tools .menu-options .menu-item a:hover,
+.front-end-tools .menu-options .menu-item a:focus {
+  background-color: #0B86A2;
+  background-image: url('../../images/arrow.png');
+  background-repeat: no-repeat;
+  background-position: 125px;
+}
+.front-end-tools .menu-options .vc-version {
+  display: none;
+  padding: 13px 13px 13px 46px;
+  background-color: #305E73;
+  background-image: url('../../images/vclogo.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  color: white;
+}
+.front-end-tools .tbk-screen-size {
+  position: fixed;
+  top: 0;
+  right: 205px;
+  z-index: 9999;
+  padding: 0 15px 0 15px;
+  background: #34C0E0;
+  height: 51px;
+  line-height: 3;
+}
+.front-end-tools .tbk-screen-size .screen-text {
+  color: white;
+  font-weight: bold;
+}

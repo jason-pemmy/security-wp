@@ -1,0 +1,152 @@
+@import '../utils/utils.less';
+
+@admincolor: #0B86A2;
+
+.front-end-tools {
+	display: none;
+
+	&.show {
+		display: block;
+	}
+
+	&::before {
+		content: "Mobile";
+		display: block;
+		position: fixed;
+		top: 0;
+		right: 121px;
+		z-index: 9999;
+		padding: 0 15px 0 15px;
+		line-height: 2.7;
+		height: 51px;
+		text-align: center;
+		font-weight: bold;
+		color: white;
+		font-size: 18px;
+		background: #222;
+
+		@media @mq-xs-min {
+			content: "XS";
+			right: 152px;
+		}
+
+		@media @mq-sm-min {
+			content: "Small";
+			right: 131px;
+		}
+
+		@media @mq-md-min {
+			content: "Medium";
+			right: 110px;
+		}
+
+		@media @mq-lg-min {
+			content: "Large";
+			right: 129px;
+		}
+
+		@media @mq-xl-min {
+			content: "XL";
+			right: 150px;
+		}
+
+		@media @mq-xxl-min {
+			content: "XXL";
+			right: 150px;
+
+		}
+
+		@media @mq-xxxl-min {
+			content: "XXXL";
+			right: 130px;
+		}
+
+	}
+
+	.menu-options {
+		position: fixed;
+		top: 250px;
+		left: 0;
+		z-index: 9999;
+		margin: 0;
+		padding: 0;
+		width: 150px;
+
+		&:hover,
+		&:focus {
+			.menu-item,
+			.vc-version {
+				display: block;
+				left: 0;
+			}
+		}
+
+		.open-menu {
+			padding: 10px;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			background-color: #222222;
+
+			img {
+				width: 40px;
+				height: 40px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+
+		}
+
+		.menu-item {
+			display: none;
+
+			a {
+				display: block;
+				padding: 13px;
+				background-color: #30A2BC;
+				color: white;
+				text-decoration: none;
+
+				&:hover,
+				&:focus {
+					background-color: @admincolor;
+					background-image: url('../../images/arrow.png');
+					background-repeat: no-repeat;
+					background-position: 125px;
+				}
+
+			}
+
+		}
+
+		.vc-version {
+			display: none;
+			padding: 13px 13px 13px 46px;
+			background-color: #305E73;
+			background-image: url('../../images/vclogo.png');
+			background-repeat: no-repeat;
+			background-position: left center;
+			color: white;
+		}
+
+	}
+
+	.tbk-screen-size {
+		position: fixed;
+		top: 0;
+		right: 205px;
+		z-index: 9999;
+		padding: 0 15px 0 15px;
+		background: #34C0E0;
+		height: 51px;
+		line-height: 3;
+
+		.screen-text {
+			color: white;
+			font-weight: bold;
+		}
+
+	}
+
+}

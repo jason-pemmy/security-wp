@@ -1,0 +1,118 @@
+@import '../utils/utils.less';
+
+// -----------------------------------------------------------------------------
+// Basic typography style for copy text
+// -----------------------------------------------------------------------------
+
+// Unclassed and flat, unwrapped style selectors ONLY
+// If you include even one single .class in this file, Lord Sauron wins
+// And the hobbits die.
+
+body {
+	font-size: 18px;
+}
+
+a {
+	&:not([class]) {
+		color: @blue-light;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			//text-decoration: underline;
+		}
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin-top: 0;
+	//margin-bottom: 50px;
+}
+
+/*h1 {
+	#freight .semi;
+	font-size: 2.200em;
+	line-height: 1;
+	.letter-spacing(-25);
+	text-transform: uppercase;
+	color: @black;
+
+	@media @mq-sm-min {
+		font-size: 2.998em;
+	}
+
+	@media @mq-md-min {
+		font-size: 3.998em;
+	}
+}*/
+
+h2 {
+	#freight .semi;
+	font-size: 1.999em;
+	line-height: 1;
+	text-transform: uppercase;
+	.letter-spacing(-25);
+	color: @black;
+
+	@media @mq-md-min {
+		font-size: 2.827em;
+	}
+}
+
+h3 {
+	#freight .semi;
+	font-size: 1.999em;
+	line-height: 1;
+	text-transform: uppercase;
+	.letter-spacing(-25);
+	color: @black;
+}
+
+h4 {
+	#freight .semi;
+	font-size: 1em;
+	font-size: 1.800em;
+	text-transform: uppercase;
+	.letter-spacing(-25);
+	color: @black;
+}
+
+h5 {
+	#freight .semi;
+	font-size: 1.500em;
+	line-height: 1;
+	text-transform: uppercase;
+	.letter-spacing(-25);
+	color: @black;
+}
+
+h6 {
+	#freight .semi;
+	font-size: 1.300em;
+	line-height: 1;
+	text-transform: uppercase;
+	.letter-spacing(-25);
+	color: @black;
+}
+
+p {
+	#acumin .regular;
+	margin-bottom: 40px;
+	line-height: 1.4;
+	color: @grey-black;
+	font-size: 18px;
+
+	@media @mq-sm-min {
+		line-height: 1.8;
+	}
+}
+
+dl {
+	margin-bottom: 50px;
+}

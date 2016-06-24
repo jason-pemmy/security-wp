@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<ruleset name="WPized Project">
+	<description>A custom set of rules to check for a WPized WordPress project</description>
+
+	<exclude-pattern>wp-activate.php</exclude-pattern>
+	<exclude-pattern>wp-comments-post.php</exclude-pattern>
+	<exclude-pattern>wp-config.php</exclude-pattern>
+	<exclude-pattern>wp-cron.php</exclude-pattern>
+	<exclude-pattern>wp-links-opml.php</exclude-pattern>
+	<exclude-pattern>wp-load.php</exclude-pattern>
+	<exclude-pattern>wp-login.php</exclude-pattern>
+	<exclude-pattern>wp-mail.php</exclude-pattern>
+	<exclude-pattern>wp-settings.php</exclude-pattern>
+	<exclude-pattern>wp-signup.php</exclude-pattern>
+	<exclude-pattern>wp-trackback.php</exclude-pattern>
+	<exclude-pattern>xmlrpc.php</exclude-pattern>
+	<exclude-pattern>**/lib/*</exclude-pattern>
+	<exclude-pattern>object-cache.php</exclude-pattern>
+	<exclude-pattern>achecker</exclude-pattern>
+	<rule ref="Squiz.PHP.CommentedOutCode"/>
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+	<rule ref="Generic.Commenting.Todo"/>
+	<rule ref="Generic.ControlStructures.InlineControlStructure"/>
+
+	<!--
+	We may also want to to include all the rules in a standard
+	-->
+	<rule ref="WordPress">
+		<!--
+		We may want a middle ground though. The best way to do this is add the
+		entire ruleset, then rule by rule, remove ones that don't suit a project. We
+		can do this by running `phpc ` with the '-s' flag, to see the names of the
+		different Sniffs, as their rules are broken. From here, we can opt to
+		exclude problematic sniffs like so.
+		-->
+
+		<exclude name="WordPress.Formatting.MultipleStatementAlignment" />
+		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing" />
+		<exclude name="WordPress.Functions.FunctionCallSignature" />
+		<exclude name="WordPress.XSS.EscapeOutput" />
+	</rule>
+</ruleset>

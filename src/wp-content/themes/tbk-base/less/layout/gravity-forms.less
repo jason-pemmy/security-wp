@@ -1,0 +1,87 @@
+@import '../utils/utils.less';
+@import (reference) '../vendors/bootstrap/forms.less';
+@import (reference) '../vendors/bootstrap/alerts.less';
+
+// please do not modify this file unless there is a glaring error
+// its purpose is to bring gravity forms as close to default bootstrap as possible
+// if you need customize an existing form, customize that less file instead (or create one if needed)
+
+// IMPORTANT: remember to set the following in the gravity forms settings:
+// Output CSS: No
+// Output HTML5: Yes
+
+.gform_wrapper {
+	ul {
+		@import (reference) '../vendors/bootstrap/type.less';
+		.list-unstyled();
+	}
+
+	li {
+		.form-group();
+	}
+
+	form {
+		margin-bottom: 0;
+	}
+
+	.gfield_required {
+		padding-left: 1px;
+		color: @state-danger-text;
+	}
+
+	.gfield_error {
+		.gfield_label {
+			color: @state-danger-text;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		input[type="tel"],
+		select,
+		textarea {
+			border-color: @alert-danger-border;
+			background-color: @alert-danger-bg;
+			color: @alert-danger-text;
+			.form-control-focus(@alert-danger-text);
+		}
+	}
+
+	.button {
+		@import (reference) '../vendors/bootstrap/buttons.less';
+		.btn();
+		.btn-primary();
+	}
+
+	.casl-message {
+		margin-top: 20px;
+		p {
+			font-size: 14px;
+			font-style: italic;
+			margin: 0;
+		}
+	}
+}
+
+.ginput_container {
+	input[type="text"],
+	input[type="email"],
+	input[type="tel"],
+	select,
+	textarea {
+		.form-control();
+	}
+
+	textarea {
+		height: auto;
+	}
+}
+
+.validation_error {
+	.alert();
+	.alert-danger();
+}
+
+#gforms_confirmation_message {
+	.alert();
+	.alert-success();
+}

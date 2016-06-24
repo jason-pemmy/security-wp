@@ -1,0 +1,243 @@
+/*
+    Document   : gforms_3_col.css
+    Created on : 26-Oct-2012, 2:14:02 PM
+    Author     : Paul
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root {
+    display: block;
+}
+
+.tbkcp_col_3_wrapper li{
+     display: block;
+    width: 33%;
+    float: left;
+    margin-bottom: 5px;
+}
+.tbkcp_col_3_wrapper ul{
+    clear: both;
+}
+.tbkcp_col_2_wrapper li{
+    display: block;
+    width: 50%;
+    float: left;
+    margin-bottom: 5px;
+}
+.tbkcp_col_2_wrapper ul{
+    clear: both;
+}
+.gform_wrapper form{
+	background: #e7f0f6;
+	padding: 19px;
+}
+.gform_wrapper .no-labels .top_label .gfield_label{
+	display:none;
+}
+.gform_wrapper .no-labels .gfield{
+	position:relative;
+}
+.gform_wrapper .no-labels .top_label .gfield_description.validation_message,
+.gform_wrapper .no-labels .gfield_description.validation_message,
+.gform_wrapper .no-labels .description,
+.gform_wrapper .no-labels .gfield_description,
+.gform_wrapper .no-labels .gsection_description,
+.gform_wrapper .no-labels .instruction{
+	margin:0 !important;
+	padding:0 !important;
+	position:absolute;
+	bottom:-0.5em;
+	left:0;
+}
+.gform_wrapper .no-labels .gfield_error .gfield_description{
+	display:none;
+}
+.gform_wrapper .no-labels .gfield_error .gfield_description.validation_message,
+.gform_wrapper .no-labels .gfield_error .gfield_description.instruction{
+	display:block;
+}
+.gform_wrapper .top_label input[type="text"],
+.gform_wrapper .top_label select,
+.gform_wrapper .top_label textarea,
+.gform_wrapper form .chzn-container-single .chzn-single,
+.gform_wrapper form .chzn-container-single .chzn-single div b{
+	padding-left:4px;
+	/**/
+	padding-left:34px !important;
+	background:#fff url(images/sprite-gforms-icons.png) 4px 5px no-repeat;
+	/**/
+	font-size:14px;
+}
+.gform_wrapper .top_label input[type="text"],
+.gform_wrapper .top_label textarea{
+	border:1px solid transparent;
+	border-bottom:1px solid #dae8f1;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.gform_wrapper .top_label input.gform_button,{
+	padding-left:6px !important;
+}
+/**/
+.gform_wrapper .phone .ginput_container input[type="text"],
+.gform_wrapper form .phone .chzn-container-single .chzn-single{
+	background-position:4px -37px;
+}
+.gform_wrapper .email .ginput_container input[type="text"],
+.gform_wrapper form .email .chzn-container-single .chzn-single{
+	background-position:4px -89px;
+}
+.gform_wrapper .company .ginput_container input[type="text"],
+.gform_wrapper form .company .chzn-container-single .chzn-single{
+	background-position:4px -147px;
+}
+.gform_wrapper .location .ginput_container input[type="text"],
+.gform_wrapper form .location .chzn-container-single .chzn-single{
+	background-position:4px -212px;
+}
+.gform_wrapper .ginput_container textarea{
+	background-position:4px -331px;
+}
+/**/
+.gform_wrapper .top_label li.gfield.gf_left_two_thirds,
+.gform_wrapper .top_label li.gfield.gf_right_two_thirds {
+	margin: 0 0 8px 0;
+	width: 66%;
+}
+
+.gform_wrapper .top_label li.gfield.gfield_error.gf_left_third,
+.gform_wrapper .top_label li.gfield.gfield_error.gf_middle_third,
+.gform_wrapper .top_label li.gfield.gfield_error.gf_right_third {
+	width: 63%;
+}
+.gform_wrapper .top_label li.gfield.gf_left_two_thirds {
+	float: left;
+	clear: left !important;
+}
+
+.gform_wrapper .top_label li.gfield.gf_right_two_thirds {
+	float: right;
+	clear: right !important;
+}
+.gform_wrapper .no-labels li.gfield.gfield_error.gfield_contains_required {
+	padding-left: 0 !important;
+}
+.gform_wrapper .no-labels li.gfield.gfield_error.gfield_contains_required,
+.gform_wrapper .no-labels li.gfield.gfield_error.gfield_contains_required label.gfield_label,
+.gform_wrapper .no-labels li.gfield.gfield_error.gfield_contains_required div.ginput_container,
+.gform_wrapper .no-labels li.gfield.gfield_error,
+.gform_wrapper .no-labels li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+	margin: 0 !important;
+	padding:0 !important;
+	background:none !important;
+	border:none !important;
+}
+.gform_wrapper .no-labels li.gfield.gfield_error,
+.gform_wrapper .no-labels li.gfield.gfield_error.gfield_contains_required{
+	margin-bottom:8px !important;
+}
+.gform_wrapper form .chzn-container-single .chzn-single{
+	font-size:14px;
+	color:#5a707e;
+	margin: 0 0 9px;
+	padding:4px 8px 1px 4px;
+	border:none;
+	border-bottom: 1px solid #dae8f1;
+}
+.gform_wrapper form .chzn-container-active .chzn-single-with-drop{
+	background:#fff;
+}
+.gform_wrapper form .chzn-container-single .chzn-single div {
+	background-image: none;
+}
+.gform_wrapper form .chzn-container-single .chzn-single div{ /* the drop down arrow */
+	border:none;
+	width:34px;
+	background:#fff;
+}
+.gform_wrapper form .chzn-container-active .chzn-single div{
+	background:#fff;
+}
+.gform_wrapper form .chzn-container-single .chzn-single div b{
+	background-position:-7px -281px;
+	padding-left:0 !important;
+	width:34px;
+	height:12px;
+	position:absolute;
+	left:0;
+	top:50%;
+	margin-top:-3px;
+}
+.gform_wrapper form .chzn-container-active .chzn-single-with-drop div b {
+	background-position:-7px -287px;
+}
+.gform_wrapper form .chzn-container .chzn-drop{
+	font-size: 14px;
+	margin-top:-10px;
+	border:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+}
+.gform_wrapper form .chzn-container .chzn-results{
+	padding:0;
+	margin:0;
+}
+.gform_wrapper form .chzn-container .chzn-results li{
+	padding:8px;
+	line-height:100%;
+}
+.gform_wrapper form .chzn-search{
+	display:none;
+}
+.gform_wrapper form .chzn-container-active .chzn-single {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+}
+.gform_wrapper .top_label .gfield_error .ginput_container{
+	max-width:none;
+}
+body .gform_wrapper .top_label .gfield_error{
+	width:auto;
+}
+body .gform_wrapper .top_label li.gfield.gfield_error.gf_left_half,
+body .gform_wrapper .top_label li.gfield.gfield_error.gf_right_half {
+	width: 49%;
+}
+
+body .gform_wrapper .top_label li.gfield.gfield_error.gf_right_half {
+	margin-right: 0;
+}
+body .gform_wrapper .top_label li.gfield.gfield_error.gf_left_third,
+body .gform_wrapper .top_label li.gfield.gfield_error.gf_middle_third,
+body .gform_wrapper .top_label li.gfield.gfield_error.gf_right_third {
+	width: 32%;
+}
+
+body .gform_wrapper .top_label li.gfield.gfield_error.gf_right_third {
+	margin-right: 0;
+}
+body .gform_wrapper .top_label li.gfield.gfield_error.gf_middle_third {
+	margin-left: 2% !important;
+}
+.gform_wrapper .submit-on-right .gform_footer.top_label{
+	text-align:right;
+	position:relative;
+}
+.gform_wrapper .submit-on-right .gform_footer.top_label .gform_ajax_spinner{
+	position:absolute;
+	top:50%;
+	right:72px;
+	margin-top:-5px;
+}
+

@@ -1,0 +1,109 @@
+/*@import '../utils/utils.less';
+
+ul:not([class]) li,
+ol:not([class]) li {
+	#acumin .regular;
+	.letter-spacing(5);
+	font-size: 17px;
+	margin-bottom: 31px;
+	color: @black;
+}
+
+ul:not([class]) {
+	counter-reset: li;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+
+	li {
+		position: relative;
+		padding-left: 33px;
+
+		&::before {
+			position: absolute;
+			top: 1px;
+			left: 0;
+			content: "◆";
+			color: @green;
+			font-size: 16px;
+		}
+
+		li:first-of-type {
+			margin-top: 25px;
+		}
+	}
+}
+
+ol:not([class]) {
+	counter-reset: li;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+
+	li {
+		position: relative;
+		padding-left: 33px;
+
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: counter(li) '.';
+			counter-increment: li;
+			color: @green;
+			#acumin .semi;
+			font-size: 17px;
+		}
+
+		li:first-of-type {
+			margin-top: 25px;
+		}
+
+		ul:not([class]) {
+			counter-reset: li;
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+
+			li {
+				position: relative;
+				padding-left: 33px;
+
+				&::before {
+					position: absolute;
+					top: 1px;
+					left: 0;
+					content: "◆";
+					color: @green;
+					font-size: 16px;
+				}
+
+				li:first-of-type {
+					margin-top: 25px;
+				}
+			}
+		}
+
+		& > ol:not([class]) {
+			counter-reset: nested;
+
+			& > li {
+				&::before {
+					counter-increment: nested;
+					content: "(" counter(nested) ")";
+				}
+
+				& > ol:not([class]) {
+					counter-reset: nested-twice;
+
+					& > li {
+						&::before {
+							counter-increment: nested-twice;
+							content: counter(nested-twice, lower-alpha) ".";
+						}
+					}
+				}
+			}
+		}
+	}
+}*/

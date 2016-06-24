@@ -1,0 +1,249 @@
+#toolbox-grid fieldset{
+    width:200px;
+    height:140px;
+    /*border: 1px #636363 solid;*/
+    margin: 0px 20px 20px 0px;
+    float: left;
+    padding: 0px;
+    position: relative;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(10, 161, 180, .2);
+    box-shadow: 0px 1px 0px 0px rgba(10, 161, 180, .2);
+    background-color:#f9f9f9;
+}
+
+#toolbox-grid fieldset.enabled{
+    background-color:#dfd
+}
+
+#toolbox-grid .button-primary{
+    float: left;
+    margin-right: 25px;
+}
+
+#toolbox-grid h3{
+    float: left;
+    margin: 0px;
+    padding: 0px 0px 0px 5px;
+    width:195px;
+    min-height: 30px;
+    background-color:#0aa1b4;
+    color:#fff;
+}
+
+#toolbox-grid .doc{
+    display: block;
+    position: absolute;
+    bottom: 10px;
+}
+#toolbox-grid a{
+  color:#21759B;
+}
+#toolbox-grid span {
+    margin:5px 0px 0px 5px;
+}
+#toolbox-grid .item {
+    clear: both;
+    display: block;
+    font-size: 14px;
+    margin: 0px 0px 0px 0px;
+    padding:8px 0px 8px 8px;
+    text-decoration: none;
+    background-color:rgba(0, 0, 0, .02);
+    border-bottom: 1px solid #eee;
+}
+#toolbox-grid .item:hover{
+    background-color: #fff;
+}
+
+#toolbox-grid .enabled .item{
+    border-bottom:1px solid rgba(10, 161, 180, .2);
+}
+
+
+
+#toolbox-grid .module-description{
+    display: none;
+}
+
+#toolbox-grid .gf-checkbox{
+
+}
+
+/* common styles */
+.gf-form label
+{
+    font: 700 normal 14px/13px Arial, Sans-serif;
+    color: #ffffff;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.gf-form label,
+.gf-checkbox input[type="checkbox"] + label::before,
+.gf-radio input[type="radio"] + label::before
+{
+    vertical-align: middle;
+}
+
+/* hide the checkboxes and radios */
+.gf-checkbox input[type="checkbox"],
+.gf-radio input[type="radio"]
+{
+    position: absolute;
+    opacity: 0;
+}
+
+/* we use generated content to create a placeholder for the checkbox and the radio */
+.gf-checkbox input[type="checkbox"] + label::before,
+.gf-radio input[type="radio"] + label::before
+{
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 13px;
+    margin: 0 0 0 0;
+    background: url("images/check.jpg") no-repeat 0 top;
+    vertical-align: middle;
+    float:right;
+}
+
+/* disabled checkbox or radio */
+.gf-form input[type="checkbox"]:disabled + label,
+.gf-form input[type="radio"]:disabled + label
+{
+    opacity: .5;
+    cursor: default; /* or cursor: no-drop */
+}
+
+/* hover checkbox (unselected state only) */
+.gf-checkbox input[type="checkbox"]:not(:checked):hover + label::before
+{
+    background-position: 0 -40px;
+}
+
+/* selected checkbox */
+.gf-checkbox input[type="checkbox"]:checked + label::before
+{
+    background-position: 0 bottom;
+}
+
+/* normal state radio */
+.gf-radio input[type="radio"] + label::before
+{
+    background-position: -13px 0;
+}
+
+/* radio hover (unselected state only) */
+.gf-radio input[type="radio"]:hover + label::before
+{
+    background-position: -13px -13px;
+}
+
+/* selected radio */
+.gf-radio input[type="radio"]:checked + label::before
+{
+    background-position: -13px -26px;
+}
+
+/* focused checkbox or radio */
+.gf-form input[type="checkbox"]:focus + label,
+.gf-form input[type="radio"]:focus + label
+{
+    outline: dotted 1px; /* by not adding color to the value we force the use of system's default focus color "invert" */
+}
+
+.gf-checkbox input[type="checkbox"].working + label::before,
+.gf-checkbox input[type="checkbox"].working:hover + label::before,
+.gf-checkbox input[type="checkbox"].working:checked + label::before{
+	background:#0990A3 url(images/spinner.gif) center center no-repeat;
+}
+
+/* older versions of internet explorer do not support either generated content, so we display the system checkboxes and radio buttons */
+@media \0screen {
+    .gf-checkbox input[type="checkbox"],
+    .gf-radio input[type="radio"]
+        {
+        position: static;
+    }
+}
+.module-message{
+	float: left;
+	width: 190px;
+	height: 100px;
+	padding: 5px;
+	overflow:auto;
+}
+.module-message .icon32,.module-message h2{
+	display:none;
+}
+.tbk_toolbox-settings-form label{
+	display:inline-block;
+	width:95px;
+	padding-right:5px;
+	float:left;
+	clear:left;
+	margin-top:10px;
+}
+.tbk_toolbox-settings-form label.checkbox-label{
+	clear:none;
+	padding-left:5px;
+}
+.tbk_toolbox-settings-form input,
+.tbk_toolbox-settings-form textarea,
+.tbk_toolbox-settings-form select{
+	float:left;
+	margin-top:10px;
+}
+.tbk_toolbox-settings-form input.radio,
+.tbk_toolbox-settings-form input.checkbox{
+	clear:left;
+	margin-left:100px;
+}
+.tbk_toolbox-settings-form input.radio.first,
+.tbk_toolbox-settings-form input.checkbox.first{
+	clear:none;
+	margin-left:0;
+}
+.tbk_toolbox-settings-form .deleter{
+	margin-left:5px;
+}
+.tbk_toolbox-settings-form p.description{
+	padding-left:100px !important;
+	clear:left;
+}
+.tbk_toolbox-settings-form .button-primary{
+	clear:left;
+	margin-top:15px;
+}
+.tbk_toolbox-settings-form .hasmany-wrapper{
+	float:left;
+	margin-top:5px;
+	border:3px double #ddd;
+	background:white;
+	padding:10px;
+}
+.tbk_toolbox-settings-form .hasmany-wrapper fieldset{
+	padding-bottom:10px;
+	margin-bottom:10px;
+	border-bottom:1px solid #999;
+	background:white;
+}
+.tbk_toolbox-settings-form .hasmany-wrapper .fieldset_template{
+	display:none;
+}
+.tbk_toolbox-settings-form .hasmany-wrapper .delete-row{
+	clear:left;
+	margin-left:100px;
+	margin-top:5px;
+}
+.tbk_toolbox-settings-form .button{
+	width:auto;
+}
+.hasmany-wrapper fieldset.collapsed .field-wrapper.not-first,
+.hasmany-wrapper fieldset.collapsed .delete-row,
+.hasmany-wrapper fieldset.collapsed p.description{
+	display:none;
+}

@@ -1,0 +1,109 @@
+.post .entry-content ul li{
+    font-size: 14px;
+    line-height: 34px;
+    font-family: "Georgia";
+    font-style: italic;
+    color: #484640;
+    list-style-type: none;
+    margin: 0;
+    padding: 0px 0 0px 20px;
+    background: url(images/nav-arrow.png) no-repeat 0px 9px;
+}
+
+.post .entry-content ol{
+
+    counter-reset: li;
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: decimal;
+
+}
+.post .entry-content ol > li::before {
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    top: -2px;
+    left: -2em;
+    margin-right: 8px;
+    padding: 4px;
+    color: #60903F;
+    font-family: "Georgia";
+    font-style: italic;
+    text-align: center;
+    font-weight: bold;
+}
+
+.post .entry-content ol > li{
+
+    margin: 0 0 6px 2em;
+    padding: 4px 8px;
+    list-style: none;
+    font-family: "Georgia";
+    font-style: italic;
+
+}
+.form {
+    background: url(images/form-bg.png) no-repeat;
+    padding: 20px;
+}
+
+.form input {
+    background: url(images/bg-input2.png) repeat;
+    border: none;
+    padding: 7px 5px 8px;
+    width: 179px;
+    -webkit-border-radius: 3px;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius: 3px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-radius: 3px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-bottom: 20px;
+}
+.post .entry-content table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.post .entry-content th{
+    text-transform: uppercase;
+    font-family: "myriad_pro_lightbold";
+    font-weight: normal;
+    color: white;
+    width: 80px;
+
+    border: 1px solid white;
+    padding: 10px;
+    font-size: 13px;
+}
+.post .entry-content th.top_left{
+
+    -webkit-border-top-left-radius: 8px;
+    -moz-top-radius-bottomleft: 8px;
+    border-top-left-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-radius-bottomleft: 8px;
+    border-bottom-left-radius: 8px;
+    border: 1px solid white;
+
+}
+.post .entry-content th.top_right{
+
+    -webkit-border-top-right-radius: 8px;
+    -moz-top-radius-bottomright: 8px;
+    border-top-right-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+    -moz-border-radius-bottomright: 8px;
+    border-bottom-right-radius: 8px;
+    border: 1px solid white;
+}
+.post .entry-content td{
+    text-align: center;
+    width: 100px;
+    height: 7px;
+    padding: 13px;
+    border: 1px solid #F6F0E2;
+}
+

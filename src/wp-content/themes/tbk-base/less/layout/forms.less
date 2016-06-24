@@ -1,0 +1,542 @@
+@import '../utils/utils.less';
+
+.form {
+	padding: 30px;
+	.clearfix();
+	position: relative;
+	background-color: @grey-ish;
+	margin-bottom: 50px;
+
+	@media @mq-sm-min {
+		padding: 50px;
+	}
+
+	.form-group {
+		margin-bottom: 20px;
+		padding-right: 25px;
+	}
+
+	.has-required {
+		position: relative;
+
+		&::after {
+			content: '*';
+			font-size: 30px;
+			position: absolute;
+			top: 36px;
+			right: 40px;
+			color: @blue;
+
+			@media @mq-xs-min {
+				top: 32px;
+				font-size: 37px;
+			}
+
+			@media @mq-sm-min {
+				top: 35px;
+			}
+		}
+
+		&.field_admin_only {
+			&::after {
+				display: none;
+			}
+		}
+	}
+
+	.has-error {
+		position: relative;
+
+		.control-label,
+		.radio,
+		.checkbox,
+		.radio-inline,
+		.checkbox-inline {
+			color: @black;
+		}
+
+		.help-block {
+			color: @red;
+		}
+
+		.form-control {
+			border-color: @red;
+		}
+
+		&::after {
+			content: '!';
+			font-size: 10px;
+			position: absolute;
+			top: 45px;
+			right: 0;
+			color: @white;
+			background-color: @red;
+			.square(14px);
+			line-height: 14px;
+			display: inline-block;
+			border-radius: 50%;
+			text-align: center;
+			border-right: 1px;
+		}
+	}
+
+	.control-label {
+		.letter-spacing(5);
+		font-size: 18px;
+		color: @black;
+		//#bernino .regular;
+		line-height: 1;
+		padding-left: 21px;
+		padding-bottom: 7px;
+		margin-bottom: 0;
+		display: block;
+
+		@media @mq-sm-min {
+			font-size: 21px;
+		}
+	}
+
+	.form-control {
+		-webkit-appearance: none;
+		border-radius: 2px;
+		border: 1px solid @white;
+		color: @black;
+		padding: 12px 16px;
+		//#dagny .italic;
+		font-size: 18px;
+		.letter-spacing(5);
+		.box-shadow(none);
+		height: auto;
+
+		&:focus {
+			outline: none;
+			.box-shadow(none);
+			border-color: @grey;
+		}
+	}
+
+	textarea {
+		min-height: 150px;
+	}
+
+	.help-block {
+		//#proxima .regular;
+		font-size: 16px;
+		line-height: 1;
+		.letter-spacing(25);
+		padding-left: 21px;
+		margin: 9px 0 0;
+	}
+
+	.btn-container {
+		text-align: center;
+		padding-right: 25px;
+	}
+
+	.btn {
+		//#facit .bold;
+		font-size: 21px;
+		line-height: 1;
+		.letter-spacing(-25);
+		color: @white;
+		text-transform: uppercase;
+		border-radius: 2px;
+		padding: 15px 30px;
+		background-color: #44aad2;
+
+		&:hover,
+		&:focus {
+			background-color: @blue;
+			color: @white;
+		}
+	}
+}
+
+.gform_wrapper {
+	text-align: left;
+
+	.gform_heading {
+		display: none; // TODO: Make heading hidable based on selection. Feature isn't working.
+	}
+
+	.medium,
+	.large {
+		width: 100% !important; // nelson can we get rid of this important?
+	}
+
+	form {
+		&:extend(.form all);
+	}
+
+	.ginput_container {
+
+		.gfield_checkbox,
+		.gfield_radio {
+			overflow: hidden;
+
+			li {
+				margin-bottom: 5px;
+
+				@media @mq-lg-min {
+					display: inline-block;
+					padding-right: 15px;
+				}
+			}
+
+			input {
+				margin-right: 7px;
+			}
+
+			input[type="radio"] {
+				& + label {
+					&::before {
+						border-radius: 50%;
+					}
+				}
+			}
+
+			input[type="checkbox"],
+			input[type="radio"] {
+				//display: none;
+				opacity: 0;
+				position: absolute;
+				height: 0;
+				width: 0;
+
+				& + label {
+					margin-left: 0;
+					padding-left: 0;
+					font-size: 16px;
+					.letter-spacing(5);
+					color: @black;
+					margin-bottom: 0;
+					position: relative;
+					padding-left: 32px;
+					line-height: 0.9;
+
+					&::before {
+						.icomoon();
+						content: '\e615';
+						.square(15px);
+						border: 2px solid @white;
+						background-color: @white;
+						color: transparent;
+						font-size: 14px;
+						line-height: 22px;
+						margin-right: 10px;
+						position: absolute;
+						left: 0;
+						top: 0;
+						text-align: center;
+						.transition(.1s);
+					}
+				}
+
+				&:checked + label {
+					&::before {
+						background-color: @green-dark;
+						.transition(.1s);
+					}
+				}
+			}
+
+			label {
+				font-size: 16px;
+
+				@media @mq-xs-min {
+					font-size: 18px;
+				}
+			}
+
+		}
+
+	}
+
+	.gfield {
+		&:extend(.form .form-group all);
+	}
+
+	.gform_footer {
+		width: 100%;
+	}
+
+	.gfield_contains_required {
+		&:not(.field_admin_only) {
+			&:extend(.form .has-required all);
+		}
+	}
+
+	.gfieldset {
+		clear: left;
+	}
+
+	.gfieldset_contents {
+		.clearfix();
+	}
+
+	.gfield_required {
+		.sr-only();
+	}
+
+	.gfield_error {
+		&:extend(.form .has-error all);
+
+		.gfield_label {
+			&:extend(.form .has-error .control-label all);
+		}
+
+		.ginput_container {
+			input[type=text],
+			input[type=email],
+			input[type=tel],
+			input[type=password],
+			input[type=number],
+			select,
+			textarea {
+				&:extend(.form .has-error .form-control all);
+				background-color: @white;
+				border-bottom: 1px solid @red;
+
+				&:hover,
+				&:focus {
+					border-bottom: 1px solid @white;
+				}
+			}
+		}
+
+		&::after {
+			content: '*';
+			color: @red;
+			top: 45px;
+			font-size: 21px;
+			color: red;
+			right: 8px;
+			background-color: transparent;
+			border-radius: 0;
+		}
+
+		.validation_message {
+			&:extend(.form .help-block all);
+			color: #ec1e58;
+		}
+	}
+
+	& .gfield_label,
+	legend {
+		&:extend(.form .control-label all);
+		border-bottom: 0;
+		padding-left: 20px;
+		margin: 0 0 5px 0;
+		#acumin .regular;
+		font-size: 18px;
+		color: @black;
+
+		@media @mq-xs-min {
+			font-size: 21px;
+		}
+	}
+
+	.ginput_container input[type=text],
+	.ginput_container input[type=email],
+	.ginput_container input[type=tel],
+	.ginput_container input[type=password],
+	.ginput_container select,
+	.ginput_container textarea,
+	.ginput_container input[type=number] {
+		&:extend(.form .form-control all);
+		padding-top: 13px;
+		padding-bottom: 13px;
+		padding-left: 15px;
+		padding-right: 15px;
+		border: 0;
+		border-radius: 0;
+
+		&:hover,
+		&:focus {
+			border: 0;
+		}
+	}
+
+	.select,
+	.form-select {
+		.ginput_container {
+			position: relative;
+
+			select {
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+			}
+
+			&::after {
+				.icomoon();
+				.icon-chevron-down();
+				position: absolute;
+				top: 4px;
+				right: 5px;
+				bottom: 1px;
+				font-size: 8px;
+				color: @blue;
+				background-color: @white;
+				padding: 0 10px;
+				line-height: 45px;
+				display: inline-block;
+				pointer-events: none;
+			}
+		}
+	}
+
+	.gfield_select {
+		padding: 11px 16px;
+	}
+
+	.gform_ajax_spinner {
+		display: block;
+		margin: 10px auto;
+	}
+
+	.gform_page {
+		& + .gform_page {
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p {
+				margin-bottom: 30px;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				font-size: 21px;
+			}
+
+			p {
+				font-size: 15px;
+				line-height: 1.5;
+			}
+		}
+	}
+
+	.gform_footer,
+	.gform_page_footer {
+		text-align: center;
+
+		.button {
+			&:extend(.form .btn all);
+			#acumin .semi;
+			font-size: 18px;
+			.letter-spacing(-5);
+			padding: 17px 70px;
+			text-transform: none;
+			background-color: @green-dark;
+			border: 0;
+			border-radius: 0;
+
+			@media @mq-xs-min {
+				font-size: 21px;
+			}
+
+			&:hover,
+			&:focus {
+				background-color: @blue;
+				outline: 0;
+				border: 0;
+			}
+		}
+	}
+}
+
+.form-inline {
+	.validation_error {
+		border: 0;
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+		padding: 0;
+		color: @black;
+		background: none;
+	}
+
+	.gfield_error {
+		.validation_message {
+			#acumin .regular;
+			font-size: 15px;
+
+			@media @mq-sm-min {
+				margin-left: 25%;
+			}
+		}
+	}
+
+	.gform_footer,
+	.gform_page_footer {
+		@media @mq-sm-min {
+			margin-left: 25%;
+		}
+	}
+
+	.gfield {
+		padding-right: 0;
+
+		@media @mq-sm-min {
+			font-size: 0;
+			padding-right: 0;
+		}
+
+		.gfield_label {
+			#acumin .regular;
+			font-size: 15px;
+
+			@media @mq-sm-min {
+				display: inline-block;
+				width: 25%;
+				margin-bottom: 0;
+				padding-top: 16px;
+				padding-right: 10px;
+				padding-bottom: 0;
+				padding-left: 0;
+				vertical-align: top;
+				text-align: right;
+			}
+		}
+
+		.ginput_container {
+			@media @mq-sm-min {
+				display: inline-block;
+				width: 75%;
+				margin-top: 0;
+				vertical-align: top;
+				padding-left: 10px;
+			}
+
+			input[type=text],
+			input[type=email],
+			input[type=tel],
+			input[type=password],
+			select,
+			textarea,
+			input[type=number] {
+				font-size: 15px;
+			}
+		}
+	}
+
+	.gfield_contains_required:not(.field_admin_only) {
+		&::after {
+			top: 40px;
+			right: -20px;
+			font-size: 37px;
+			line-height: 1;
+
+			@media @mq-sm-min {
+				top: 16px;
+			}
+		}
+	}
+}

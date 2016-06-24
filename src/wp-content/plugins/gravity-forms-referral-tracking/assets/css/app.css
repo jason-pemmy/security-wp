@@ -1,0 +1,108 @@
+@CHARSET "ISO-8859-1";
+
+#diff-results-wrapper,
+#publish-results-wrapper {
+	padding: 20px 0;
+}
+
+#git-diff-results,
+#git-publish-results {
+	width: 100%;
+	margin: 0 auto;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 1px solid #ddd;
+}
+
+.th-commit-hash {
+	width: 20%;
+}
+
+.th-src-file {
+	width: 60%;
+}
+
+.th-status {
+	width: 20%;
+}
+
+.th-date {
+	width: 20%;
+}
+
+.th-type {
+	width: 20%;
+}
+
+.th-message {
+	width: 60%;
+}
+
+#git-diff-results tr td,
+#git-publish-results tr td {
+	border-top: 1px solid #ddd;
+	padding: 4px 8px;
+}
+
+#git-diff-results tr th,
+#git-publish-results tr th{
+	padding: 4px 8px;
+}
+
+.truncated-diff-result,
+.truncated-publish-result {
+	font-weight: bold;
+	color: #21759B;
+}
+
+#diff-header,
+#publish-header {
+	background-color: #f1f1f1;
+	cursor: pointer;
+}
+
+#diff-header th ,
+#publish-header th{
+	text-align: left;
+}
+
+.preloader {
+	line-height: 30px;
+	vertical-align: bottom;
+	padding-left: 10px;
+}
+
+.message_error {
+	color: red;
+	font-weight: bold;
+}
+
+.message_warning {
+	color: orange;
+	font-weight: bold;
+}
+
+.message_information {
+	color: #000;
+	font-weight: bold;
+}
+
+.message_skip {
+	color: #333;
+	font-weight: bold;
+}
+
+.diff_type_a {
+	color: #228B22;
+	font-weight: bold;
+}
+
+.diff_type_m {
+	color: #0038A8;
+	font-weight: bold;
+}
+
+.diff_type_d {
+	color: red;
+	font-weight: bold;
+}

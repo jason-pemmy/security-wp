@@ -1,0 +1,92 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+  id="root" width="100%" height="100%" 
+ onload="makebuttons(20,10,CLR,buttons)"
+>
+<script><![CDATA[
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+
+xmlns="http://www.w3.org/2000/svg"
+xlinkns = "http://www.w3.org/1999/xlink";
+D=document
+CLR=new Array("green","red","blue","purple")
+buttons=new Array("activate","strokes","uncolor","identify","rotateall","decide","rescale","crossing")
+function makebuttons(x,y,colors,B){
+console.log(window.location);
+ var bwidth=100
+ var barheight=28
+ var n=B.length
+ for (var i=0;i<n;i++){
+  var g = D.createElementNS(xmlns,"g");
+  var b = D.createElementNS(xmlns,"rect");
+  var t=D.createElementNS(xmlns,"text");
+  tv=D.createTextNode(B[i]);
+  g.setAttribute("id","b"+i)
+  t.setAttribute("x",x+20)
+  t.setAttribute("y",y+i*barheight+18)
+console.log(getParameterByName('fill'));
+  t.setAttribute("fill",getParameterByName('fill'))
+  t.setAttribute("font-size",21)
+  t.setAttribute("font-family","garamond")
+  t.appendChild(tv)
+  b.setAttribute("x", x);
+  b.setAttribute("y", y+i*barheight);
+  b.setAttribute("width",bwidth)
+  b.setAttribute("height", barheight);
+  b.setAttribute("fill", colors[i%colors.length]);
+  b.setAttribute("opacity",.2)
+  var s=""
+  if (i>0) g.setAttribute("visibility","hidden")
+  else s="visible"
+  g.setAttribute("onmouseover", "hilight(evt)")
+  g.setAttribute("onmouseout", "hilight(evt)")
+  g.setAttribute("onclick", "activate('hidden',"+n+");eval("+B[i]+"('"+s+"'))");
+  if (i>1) g.setAttribute("onclick", "activate('hidden',"+n+");alert('"+B[i]+"')");
+  g.appendChild(b);
+  g.appendChild(t);
+  D.documentElement.appendChild(g)
+ }
+ b = D.createElementNS(xmlns,"rect");
+ b.setAttribute("x", x-4);
+ b.setAttribute("y", y-4);
+ b.setAttribute("width",bwidth+8)
+ b.setAttribute("height", barheight*B.length+8);
+ b.setAttribute("fill", "none");
+ b.setAttribute("stroke","grey")
+ b.setAttribute("stroke-width",8)
+ //b.setAttribute("opacity",0)
+ b.setAttribute("visibility","hidden") 
+ b.setAttribute("onmouseover","activate('hidden',"+n+")") 
+ b.setAttribute("id","menu") 
+ D.documentElement.appendChild(b)
+}
+function hilight(evt){
+ var o=evt.currentTarget
+ if(evt.type=="mouseover") {
+  o.firstChild.setAttribute("opacity",.5)
+  o.firstChild.nextSibling.setAttribute("fill","white")
+ }
+ else {
+  o.firstChild.setAttribute("opacity",.2)
+  o.firstChild.nextSibling.setAttribute("fill","black")
+ }
+}
+function activate(s){
+ for (var i=1;i<buttons.length;i++){
+  D.getElementById("b"+i).setAttribute("visibility",s)
+ }
+ D.getElementById("menu").setAttribute("visibility",s)
+ 
+}
+function strokes(){
+ alert("strokes")
+}
+  ]]></script>
+ </svg>

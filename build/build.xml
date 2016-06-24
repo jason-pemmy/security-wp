@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="name-of-project" default="build">
+	<!-- fileset for exclusions in reports/scans -->
+
+	<property name="srcdir" value="${basedir}/../workspace/src" />
+
+	<property name="fileExclusion1" value="wp-admin" />
+	<property name="fileExclusion2" value="wp-includes" />
+	<property name="fileExclusion3" value="wp-content/plugins" />
+	<property name="fileExclusion4" value="*.css" />
+	<property name="fileExclusion5" value="*.js" />
+    <property name="fileExclusion6" value="wp-content/object-cache.php" />
+    <property name="fileExclusion7" value="**/lib/*" />
+    <property name="fileExclusion8" value="searchreplacedb2.php" />
+    <property name="fileExclusion9" value="config" />
+    <property name="fileExclusion10" value="wp-content/w3tc-config" />
+
+    <property name="exclusions"	value="${fileExclusion1},${fileExclusion2},${fileExclusion3},${fileExclusion4},${fileExclusion5},${fileExclusion6},${fileExclusion7},${fileExclusion8},${fileExclusion9}, ,${fileExclusion10}" />
+
+	<!-- path to the www root for the stage server -->
+	<property name="www_home" value="/home/qatbkc5/public_html/dev" />
+	<property name="project_path" value="tbk-base/src" />
+
+	<target name="build"
+		depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpunit,stage_publish" />
+
+	<target name="build-parallel"
+		depends="prepare,lint,tools-parallel,phpunit,stage_publish" />
+
+	<target name="tools-parallel" description="Run tools in parallel">
+		<parallel threadCount="2">
+			<sequential>
+				<antcall target="pdepend" />
+				<antcall target="phpmd-ci" />
+			</sequential>
+			<antcall target="phpcpd" />
+			<antcall target="phpcs-ci" />
+			<antcall target="phploc" />
+		</parallel>
+	</target>
+
+	<target name="clean" description="Cleanup build artifacts">
+		<delete dir="${basedir}/build/api" />
+		<delete dir="${basedir}/build/code-browser" />
+		<delete dir="${basedir}/build/coverage" />
+		<delete dir="${basedir}/build/logs" />
+		<delete dir="${basedir}/build/pdepend" />
+	</target>
+
+	<target name="prepare" depends="clean" description="Prepare for build">
+		<mkdir dir="${basedir}/build/api" />
+		<mkdir dir="${basedir}/build/code-browser" />
+		<mkdir dir="${basedir}/build/coverage" />
+		<mkdir dir="${basedir}/build/logs" />
+		<mkdir dir="${basedir}/build/pdepend" />
+	</target>
+
+	<target name="lint" description="Perform syntax check of sourcecode files">
+		<apply executable="php" failonerror="true">
+			<arg value="-l" />
+
+			<fileset dir="${srcdir}">
+				<include name="**/*.php" />
+				<exclude name="${fileExclusion1}/**.*" />
+				<exclude name="${fileExclusion2}/**.*" />
+				<exclude name="${fileExclusion3}/**.*" />
+				<modified />
+			</fileset>
+		</apply>
+	</target>
+
+	<target name="phploc" description="Measure project size using PHPLOC">
+		<exec executable="phploc">
+			<arg value="--log-csv" />
+			<arg value="${basedir}/build/logs/phploc.csv" />
+			<arg value="--exclude" />
+			<arg value="${srcdir}/${fileExclusion1}" />
+			<arg value="--exclude" />
+			<arg value="${srcdir}/${fileExclusion2}" />
+			<arg value="--exclude" />
+			<arg value="${srcdir}/${fileExclusion3}" />
+			<arg path="${basedir}/src" />
+		</exec>
+	</target>
+
+	<target name="pdepend" description="Calculate software metrics using PHP_Depend">
+		<exec executable="pdepend">
+			<arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
+			<arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
+			<arg
+				value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
+			<arg value="--ignore=${exclusions}" />
+			<arg path="${basedir}/src" />
+		</exec>
+	</target>
+
+	<target name="phpmd"
+		description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
+		<exec executable="phpmd">
+			<arg path="${basedir}/src" />
+			<arg value="text" />
+			<arg value="${basedir}/build/phpmd.xml" />
+			<arg value="--exclude" />
+			<arg value="${exclusions}" />
+			<arg value="--suffixes" />
+			<arg value="php" />
+		</exec>
+	</target>
+
+	<target name="phpmd-ci"
+		description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
+		<exec executable="phpmd">
+			<arg path="${basedir}/src" />
+			<arg value="xml" />
+			<arg value="${basedir}/build/phpmd.xml" />
+			<arg value="--reportfile" />
+			<arg value="${basedir}/build/logs/pmd.xml" />
+			<arg value="--exclude" />
+			<arg value="${exclusions}" />
+			<arg value="php" />
+		</exec>
+	</target>
+
+	<target name="phpcs"
+		description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
+		<exec executable="phpcs">
+			<arg value="--standard=${basedir}/build/phpcs.xml" />
+			<arg value="--ignore=${exclusions}" />
+			<arg path="${basedir}/src" />
+		</exec>
+	</target>
+
+	<target name="phpcs-ci"
+		description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server">
+		<exec executable="phpcs">
+			<arg value="--report=checkstyle" />
+			<arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
+			<arg value="--standard=${basedir}/build/phpcs.xml" />
+			<arg value="--ignore=${exclusions}" />
+			<arg path="${basedir}/src" />
+		</exec>
+	</target>
+
+	<target name="phpcpd" description="Find duplicate code using PHPCPD">
+		<exec executable="phpcpd">
+			<arg value="--log-pmd" />
+			<arg value="${basedir}/build/logs/pmd-cpd.xml" />
+			<arg value="--exclude" />
+			<arg value="${fileExclusion1}" />
+			<arg value="--exclude" />
+			<arg value="${fileExclusion2}" />
+			<arg value="--exclude" />
+			<arg value="${fileExclusion3}" />
+			<arg path="${basedir}/src" />
+		</exec>
+	</target>
+
+	<target name="phpunit" description="Run unit tests with PHPUnit">
+		<exec executable="phpunit" failonerror="true" />
+	</target>
+
+	<target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
+		<exec executable="phpcb">
+			<arg value="--log" />
+			<arg path="${basedir}/build/logs" />
+			<arg value="--source" />
+			<arg path="${basedir}/src" />
+			<arg value="--output" />
+			<arg path="${basedir}/build/code-browser" />
+			<arg value="--exclude" />
+			<arg value="${fileExclusion1}" />
+			<arg value="--exclude" />
+			<arg value="${fileExclusion2}" />
+			<arg value="--exclude" />
+			<arg value="${fileExclusion3}" />
+		</exec>
+	</target>
+
+	<target name="stage_publish"
+		description="Copy the source for this project to the stage web server directory">
+
+		<!-- del -->
+		<delete>
+			<fileset dir="${www_home}/${project_path}/">
+				<exclude name="**/wp-content/uploads/**" />
+			</fileset>
+		</delete>
+		<!-- copy -->
+		<copy todir="${www_home}/${project_path}/">
+			<fileset dir="${basedir}/src" />
+		</copy>
+
+		<!-- chmod -->
+		<chmod perm="755">
+			<fileset dir="${www_home}/${project_path}/" />
+		</chmod>
+		<!-- chgrp -->
+		<chgrp group="qatbkc5">
+			<fileset dir="${www_home}/${project_path}/" includes="**/*" />
+			<dirset dir="${www_home}/${project_path}/" includes="**/*" />
+		</chgrp>
+		<chgrp group="qatbkc5" file="${www_home}/${project_path}/" type="dir" />
+		<!-- chgrp -->
+		<chown owner="qatbkc5">
+			<fileset dir="${www_home}/${project_path}/" includes="**/*" />
+			<dirset dir="${www_home}/${project_path}/" includes="**/*" />
+		</chown>
+		<chown owner="qatbkc5" file="${www_home}/${project_path}/" type="dir" />
+	</target>
+</project>

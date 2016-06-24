@@ -1,0 +1,104 @@
+body {
+  font-size: 18px;
+}
+a:not([class]) {
+  color: #3bb0c9;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+/*h1 {
+	#freight .semi;
+	font-size: 2.200em;
+	line-height: 1;
+	.letter-spacing(-25);
+	text-transform: uppercase;
+	color: @black;
+
+	@media @mq-sm-min {
+		font-size: 2.998em;
+	}
+
+	@media @mq-md-min {
+		font-size: 3.998em;
+	}
+}*/
+h2 {
+  font-family: "freight-display-pro", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.999em;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  color: #000;
+}
+@media screen and (min-width: 992px) {
+  h2 {
+    font-size: 2.827em;
+  }
+}
+h3 {
+  font-family: "freight-display-pro", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.999em;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  color: #000;
+}
+h4 {
+  font-family: "freight-display-pro", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1em;
+  font-size: 1.800em;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  color: #000;
+}
+h5 {
+  font-family: "freight-display-pro", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.500em;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  color: #000;
+}
+h6 {
+  font-family: "freight-display-pro", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.300em;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  color: #000;
+}
+p {
+  font-family: "acumin-pro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 40px;
+  line-height: 1.4;
+  color: #161616;
+  font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+  p {
+    line-height: 1.8;
+  }
+}
+dl {
+  margin-bottom: 50px;
+}
