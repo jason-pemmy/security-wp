@@ -1,6 +1,5 @@
-<div id="content"> 
-	<div class="feed">  <!--1 Column Feed Item Holder-->
-		
+<div id="feed-item-content"> 
+	<div class="feed">  <!--1 Column Feed Item Holder-->		
 		<div class="feed-item vulnerable">
 			<div class="icon-holder"><div class="icon"></div></div>
 			<div class="text-holder col-3-5">

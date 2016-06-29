@@ -1,6 +1,6 @@
 @tbk-blue: #20abc1;
 
-#content {
+#feed-item-content {
 	margin-top: 50px;
 	width: 100%;
 	
@@ -12,13 +12,13 @@
 	}
 } 
 
-.boxes {
-	margin: 110px auto 0 300px;
-	width: 60%;
+.boxes {	
+	margin: 110px auto 0 auto;
+	width: 0%;
 	
-	@media all and (max-width: 1000px){
-		margin: 110px auto 0 auto;
-		width: 0%;	
+	@media all and (min-width: 1000px){
+		margin: 110px auto 0 300px;
+		width: 60%;	
 	}
 }
 
@@ -31,12 +31,12 @@
 	height: 200px;
 }
 
-.col-1-3 {
-	width: 33.333%;
-	height: 200px;
+.col-1-3 {	
+	width: 100%;
 	
-	@media all and (max-width: 1000px) {
-		width: 100%;	
+	@media all and (min-width: 1000px) {
+		width: 33.333%;
+		height: 200px;	
 	}
 }
 
@@ -99,13 +99,13 @@
 	}
 }
 
-.feed {
-	padding-top: 20px;
-	margin-left: 85px;
+.feed {	
+	margin-top: 63px;
+	margin-left: 0;	
 	
-	@media all and (max-width: 1000px) {
-		margin-top: -2px;
-		margin-left: 0;	
+	@media all and (min-width: 1000px) {
+		padding-top: 20px;
+		margin-left: 85px;
 	}
 }
 
@@ -155,18 +155,6 @@
 		@media all and (min-width: 650px) {
 			margin-left: 0;	
 		}
-		
-		/*@media all and (max-width: 560px) {
-			width: 70%;
-		}
-		
-		@media all and (max-width: 470px) {			
-			width: 60%;
-		}
-		
-		@media all and (max-width: 360px) {
-			width: 50%;
-		}*/
 	}
 	
 	.spacer {
@@ -248,41 +236,9 @@
 				font-size: 30px;    			
     			margin-left: -7px;
 				margin-top: 19px;
-				color: forestgreen!important;
+				color: forestgreen !important;
 			}			
 		}
-		
-		/*.red-circle {			
-			position: relative;
-			float: left;
-			width: 70px;
-			height: 70px;
-			
-			border-radius: 50%;
-			background-color: transparent;
-			border-style: solid;
-			border-width: 1px;
-			border-color: red;		
-			
-			span {
-				position: absolute;
-			   	background: red;
-			   	border-radius: 50%;
-			   	height: 60px;
-			   	width: 60px;
-			   	top: 50%;
-			   	left: 50%;
-			   	margin: -30px 0px 0px -30px;
-				padding-top: 23px;
-				
-				text-align: center;
-				font-size: 10px;
-				font-weight: bold;
-				line-height: 12px;
-				text-transform: uppercase;
-				color: #fff;
-			}
-		}*/
 	}
 }
 

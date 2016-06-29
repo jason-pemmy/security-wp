@@ -105,8 +105,7 @@ jQuery(document).ready(function($) {
 			portfolioOpen = true;
 		} else {
 			$('.secure').css('height', '100px');
-			if (desktopView) {
-				console.log("sup***");
+			if (desktopView) {				
 				$('.secure').css('margin-bottom', '10px');	
 			} else {
 				$('.secure').css('margin-bottom', '1px');	
