@@ -30,11 +30,11 @@
 				</div><!--end of toolbar-->
 				<div class="filters">
 					<ul>
-						<li class="clickable" id="blog-filter">
+						<li class="clickable" id="secure-filter">
 							<i class="material-icons">sentiment_very_satisfied</i>
 							<span>Secure</span>
 						</li>
-						<li class="clickable" id="portfolio-filter">
+						<li class="clickable" id="vulnerable-filter">
 							<i class="material-icons">sentiment_very_dissatisfied</i>
 							<span>Vulnerable</span>
 						</li>

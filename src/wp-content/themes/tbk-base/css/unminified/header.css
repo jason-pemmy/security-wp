@@ -44,9 +44,15 @@ h1 {
   margin-top: 15px;
 }
 #apptitle {
-  width: 50%;
-  margin-left: 20px;
   float: left;
+  width: 65%;
+  margin-left: 0;
+  margin-top: 3px;
+}
+@media all and (min-width: 650px) {
+  #apptitle {
+    margin-left: 20px;
+  }
 }
 .security-monitor-container {
   margin-left: 0;
