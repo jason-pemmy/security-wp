@@ -111,7 +111,10 @@ class The_Theme extends TBK_Theme {
 	
 	public function enqueue_styles() {
 		wp_enqueue_style( 'angular-material-icons', get_template_directory_uri() . '/css/unminified/angular-material-icons.css' );
-		wp_enqueue_style( 'angular-material-style', get_template_directory_uri() . '/css/unminified/angular-material.css' );		
+		wp_enqueue_style( 'angular-material-style', get_template_directory_uri() . '/css/unminified/angular-material.css' );
+		
+		wp_enqueue_style( 'security-monitor-navbar', get_template_directory_uri() . '/css/unminified/security-monitor-navbar.css' );
+		wp_enqueue_style( 'security-monitor-content-list', get_template_directory_uri() . '/css/unminified/security-monitor-content-list.css' );
 	}
 	
 

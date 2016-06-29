@@ -445,16 +445,6 @@
 }
 .gform_wrapper .select .ginput_container::after,
 .gform_wrapper .form-select .ginput_container::after {
-  font-family: 'icomoon';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  content: "\e908";
   position: absolute;
   top: 4px;
   right: 5px;

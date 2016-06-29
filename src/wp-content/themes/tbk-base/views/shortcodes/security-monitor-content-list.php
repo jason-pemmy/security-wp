@@ -1,4 +1,4 @@
-<div id="content">
+<div id="content"> 
 	<div class="feed">  <!--1 Column Feed Item Holder-->
 		<div class="feed-item blog">
 			<div class="icon-holder"><div class="icon"></div></div>
@@ -9,9 +9,10 @@
 			</div><!--End of Text Holder-->
 			<div class="post-options-holder">
 				<div class="tools">
-					<div class="red-circle"><span>*</span></div>
+					<div class=""></div>
+					<!--<div class="red-circle"><span>*</span></div>
 					<div class="yellow-circle"></div>
-					<div class="green-circle"></div>
+					<div class="green-circle"></div>-->
 				</div><!--End Tools-->
 			</div><!--End Post Options Holder -->
 		</div><!--End of Feed Item-->
