@@ -54,15 +54,11 @@ h1 {
     margin-left: 20px;
   }
 }
-.security-monitor-container {
-  margin-left: 0;
-  margin-right: 0;
-}
 .security-monitor-container .vc_col-sm-3 {
   width: 240px;
 }
 .security-monitor-container .vc_col-sm-9 {
-  width: 100%;
+  width: 95%;
 }
 .allholder {
   margin: 0px;

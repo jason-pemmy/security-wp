@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Nicolas Kuttler
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Better Lorem Ipsum Generator 0.9.2.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/better-lorem\n"
+"POT-Creation-Date: 2010-10-08 16:16+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: better-lorem.php:108
+#, php-format
+msgid ""
+"Better Lorem has been automatically deactivated because of the following "
+"error: <strong>%s</strong>."
+msgstr ""
+
+#: inc/admin.php:74 inc/admin.php:75
+msgid "Better Lorem Ipsum"
+msgstr ""
+
+#: inc/admin.php:230
+msgid "Better Lorem Ipsum generator"
+msgstr ""
+
+#: inc/admin.php:235
+msgid "Main Options"
+msgstr ""
+
+#: inc/admin.php:254
+msgid "Create terms for and use these taxonomies for auto-tagging"
+msgstr ""
+
+#: inc/admin.php:258
+msgid "Create how many terms for each taxonomy"
+msgstr ""
+
+#: inc/admin.php:262
+msgid "Create posts for"
+msgstr ""
+
+#: inc/admin.php:266
+msgid "Create how many of each post type"
+msgstr ""
+
+#: inc/admin.php:268
+msgid ""
+"Keep it reasonable, you might hit the PHP execution time limit if you don't"
+msgstr ""
+
+#: inc/admin.php:271
+msgid "Create how many comments for each post (min)"
+msgstr ""
+
+#: inc/admin.php:273 inc/admin.php:282
+msgid "Zero recommended"
+msgstr ""
+
+#: inc/admin.php:276
+msgid "Create how many comments for each post (max)"
+msgstr ""
+
+#: inc/admin.php:280
+msgid "Add how many terms of each taxonomy to every post (min)"
+msgstr ""
+
+#: inc/admin.php:285
+msgid "Add how many terms of each taxonomy to every post (max)"
+msgstr ""
+
+#: inc/admin.php:289
+msgid "Apply settings"
+msgstr ""
+
+#: inc/admin.php:291
+msgid ""
+"Check and submit the form to build your lorem content. Applies the "
+"<strong>visible</strong> settings, not the saved ones."
+msgstr ""
+
+#: inc/admin.php:297
+msgid "Save Changes"
+msgstr ""
+
+#: inc/nkuttler.php:26
+msgid "Do you like this plugin?"
+msgstr ""
+
+#: inc/nkuttler.php:34
+#, php-format
+msgid "<a href=\"%s\">Rate</a> it"
+msgstr ""
+
+#: inc/nkuttler.php:37
+#, php-format
+msgid "<a href=\"%s\">Visit</a> it's homepage"
+msgstr ""
+
+#: inc/nkuttler.php:40
+#, php-format
+msgid "<a href=\"%s\">Subscribe</a> the feed"
+msgstr ""
+
+#: inc/nkuttler.php:43
+#, php-format
+msgid "<a href=\"%s\">Donate</a>!"
+msgstr ""
+
+#: inc/nkuttler.php:46
+msgid "About the author"
+msgstr ""
+
+#: inc/nkuttler.php:49
+#, php-format
+msgid "My <a href=\"%s\">blog</a>"
+msgstr ""
+
+#: inc/nkuttler.php:52
+#, php-format
+msgid "Subscribe via <a href=\"%s\">RSS</a> or <a href=\"%s\">email</a>"
+msgstr ""
+
+#: inc/nkuttler.php:56
+msgid "My other plugins"
+msgstr ""
+
+#: inc/nkuttler.php:57
+msgid "<a href=\"http://www.nkuttler.de\">Translated by Nicolas</a>"
+msgstr ""
+
+#. Plugin Name of an extension
+msgid "Better Lorem Ipsum Generator"
+msgstr ""
+
+#. Plugin URI of an extension
+msgid "http://www.nkuttler.de/wordpress/better-lorem-posts/"
+msgstr ""
+
+#. Description of an extension
+msgid "Better lorem ipsum generator that does taxonomies and post types"
+msgstr ""
+
+#. Author of an extension
+msgid "Nicolas Kuttler"
+msgstr ""
+
+#. Author URI of an extension
+msgid "http://www.nkuttler.de/"
+msgstr ""

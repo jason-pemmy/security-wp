@@ -1,4 +1,4 @@
-<div id="feed-item-content"> 
+<div id="feed-item-content">
 	<div class="feed">  <!--1 Column Feed Item Holder-->		
 		<div class="feed-item vulnerable">
 			<div class="icon-holder"><div class="icon"></div></div>
@@ -26,7 +26,8 @@
 				</div></div><!--end of text-holder-->
 			<div class="post-options-holder">
 				<div class= "tools">
-					<div class="status-indicator1-secure">									
+					<div class="status-indicator1-secure">	
+						<i class="material-icons" id="settings">more_vert</i>								
 					</div>
 				</div><!--End Tools-->
 			</div><!--End Post Options Holder -->
@@ -59,7 +60,8 @@
 			</div><!--end of text-holder--> 
 			<div class="post-options-holder">
 				<div class= "tools"> 
-					<div class="status-indicator2-secure">			
+					<div class="status-indicator2-secure">
+						<i class="material-icons" id="settings">more_horiz</i>			
 					</div>
 				</div><!--End Tools-->
 			</div><!--End Post Options Holder -->
